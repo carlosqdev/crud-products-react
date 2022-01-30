@@ -20,7 +20,7 @@ function Form() {
           <input className="form-control" type="text" name="price" id="price" placeholder='Precio del producto' />
         </div>
 
-        <div class="d-grid gap-2 mt-3">
+        <div className="d-grid gap-2 mt-3">
           <button className="btn btn-lg btn-primary" type="submit">Guardar</button>
         </div>
       </form>
