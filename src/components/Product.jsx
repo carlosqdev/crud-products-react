@@ -11,7 +11,7 @@ function Product() {
         <p className="card-text">Descripción: Camiseta color azul</p>
         <p className="card-text">Precio: $20.00</p>
       </div>
-      <div style={{padding: "1rem"}} class="d-grid gap-2 mb-2">
+      <div style={{padding: "1rem"}} className="d-grid gap-2 mb-2">
         <button className="btn btn-secondary">Editar</button>
         <button className="btn btn-danger">Eliminar</button>
       </div>
