@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { notify } from "../services/notify";
 
 const initialState = {
   cod: "",
@@ -16,8 +17,16 @@ function Form({ addOrUpdateProduct, currentCode, allProducts }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addOrUpdateProduct(product);
-    setProduct(initialState);
+    if(product.cod.trim().length > 0 && product.description.trim().length > 0) {
+      if(product.price.trim().length > 0) {
+        addOrUpdateProduct(product);
+        setProduct(initialState);
+      }else {
+        notify("Falta llenar campos del formulario");
+      }
+    }else {
+      notify("Falta llenar campos del formulario");
+    }
   };
 
   useEffect(() => {
@@ -44,7 +53,6 @@ function Form({ addOrUpdateProduct, currentCode, allProducts }) {
           id="cod"
           placeholder="Escribe código del producto"
           readOnly={currentCode > 0 ? true : false}
-          required
         />
       </div>
 
@@ -60,7 +68,6 @@ function Form({ addOrUpdateProduct, currentCode, allProducts }) {
           name="description"
           id="description"
           placeholder="Describe el producto"
-          required
         />
       </div>
 
@@ -76,7 +83,6 @@ function Form({ addOrUpdateProduct, currentCode, allProducts }) {
           name="price"
           id="price"
           placeholder="Precio del producto"
-          required
         />
       </div>
 
